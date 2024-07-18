@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { useSearchParams } from "react-router-dom";
 import { io, Socket } from "socket.io-client";
 
 type Props = {
@@ -11,7 +10,6 @@ type Props = {
 const URL = "http://localhost:3000";
 
 export const Room = ({ name, localAudioTrack, localVideoTrack }: Props) => {
-  const [searchParams, setSearchParams] = useSearchParams();
   const [socket, setSocket] = useState<Socket | null>();
   const [lobby, setLobby] = useState(true);
   const [sendingPc, setSendingPc] = useState<RTCPeerConnection | null>(null);
